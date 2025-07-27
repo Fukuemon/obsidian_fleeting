@@ -3,7 +3,7 @@
   "name": "obsidian-memo-raycast",
   "title": "Obsidian Memo",
   "description": "Direct memo input for Obsidian Daily Notes with configurable templates and paths",
-  "icon": "📝",
+  "icon": "icon.png",
   "author": "Fukuemon",
   "categories": [
     "Productivity"

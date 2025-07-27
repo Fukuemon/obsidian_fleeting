@@ -27,7 +27,7 @@ const pad = (num: number, length: number): string => {
  */
 export const formatDatePattern = (
   pattern: string,
-  date: Date = new Date()
+  date: Date = new Date(),
 ): string => {
   return pattern.replace(/\{\{DATE:([^}]+)\}\}/g, (match, format) => {
     return formatDate(format, date);

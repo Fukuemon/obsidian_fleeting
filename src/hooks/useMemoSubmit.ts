@@ -62,7 +62,7 @@ export const useMemoSubmit = (): UseMemoSubmitResult => {
           const today = formatDatePattern("{{DATE:YYYY-MM-DD(ddd)}}");
           await writeFile(
             fullDailyNotePath,
-            `# ${today}\n\n${settings.journalSection}\n\n`
+            `# ${today}\n\n${settings.journalSection}\n\n`,
           );
         }
       }
@@ -81,7 +81,7 @@ export const useMemoSubmit = (): UseMemoSubmitResult => {
         formattedEntry,
         true, // サブセクションを考慮
         true, // セクションが見つからない場合は作成
-        settings.insertPosition // 設定で指定された位置に挿入
+        settings.insertPosition, // 設定で指定された位置に挿入
       );
 
       // 成功通知の表示（設定で有効な場合のみ）
@@ -122,7 +122,7 @@ export const useMemoSubmit = (): UseMemoSubmitResult => {
  */
 const createDailyNoteFromTemplate = async (
   settings: ObsidianMemoSettings,
-  targetPath: string
+  targetPath: string,
 ): Promise<void> => {
   const expandedVaultPath = expandTildePath(settings.obsidianVaultPath);
   const templatePath = path.join(expandedVaultPath, settings.templatePath);

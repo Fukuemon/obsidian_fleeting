@@ -15,7 +15,7 @@ interface UseSettingsResult {
   isSettingsLoaded: boolean;
   updateSetting: <K extends keyof ObsidianMemoSettings>(
     key: K,
-    value: ObsidianMemoSettings[K]
+    value: ObsidianMemoSettings[K],
   ) => void;
   handleSubmit: (values: ObsidianMemoSettings) => Promise<boolean>;
   handleReset: () => Promise<void>;
@@ -40,14 +40,14 @@ export const useSettings = (): UseSettingsResult => {
   // 設定値を更新
   const updateSetting = <K extends keyof ObsidianMemoSettings>(
     key: K,
-    value: ObsidianMemoSettings[K]
+    value: ObsidianMemoSettings[K],
   ) => {
     setSettings((prev) => ({ ...prev, [key]: value }));
   };
 
   // 設定を保存
   const handleSubmit = async (
-    values: ObsidianMemoSettings
+    values: ObsidianMemoSettings,
   ): Promise<boolean> => {
     if (!values.obsidianVaultPath.trim()) {
       await showToast({

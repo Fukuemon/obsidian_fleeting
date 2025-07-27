@@ -38,7 +38,7 @@ const SETTINGS_KEY = "obsidian-memo-settings";
  * @param settings - 保存する設定値
  */
 export const saveSettings = async (
-  settings: ObsidianMemoSettings
+  settings: ObsidianMemoSettings,
 ): Promise<void> => {
   await LocalStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
 };
@@ -76,7 +76,7 @@ export const resetSettings = async (): Promise<void> => {
  */
 export const updateSetting = async <K extends keyof ObsidianMemoSettings>(
   key: K,
-  value: ObsidianMemoSettings[K]
+  value: ObsidianMemoSettings[K],
 ): Promise<void> => {
   const currentSettings = await loadSettings();
   const updatedSettings = { ...currentSettings, [key]: value };

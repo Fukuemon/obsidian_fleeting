@@ -65,7 +65,7 @@ export const readFile = async (filePath: string): Promise<string> => {
  */
 export const writeFile = async (
   filePath: string,
-  content: string
+  content: string,
 ): Promise<void> => {
   // ディレクトリが存在しない場合は作成
   const dirPath = path.dirname(filePath);
@@ -89,7 +89,7 @@ export const appendToSection = async (
   content: string,
   considerSubsections: boolean = true,
   createIfNotFound: boolean = true,
-  insertPosition: "top" | "bottom" = "bottom"
+  insertPosition: "top" | "bottom" = "bottom",
 ): Promise<void> => {
   let fileContent = "";
 
@@ -125,7 +125,7 @@ export const appendToSection = async (
     const insertIndex = findInsertPosition(
       lines,
       sectionIndex,
-      considerSubsections
+      considerSubsections,
     );
     lines.splice(insertIndex, 0, content);
     fileContent = lines.join("\n");
@@ -154,7 +154,7 @@ const findSectionIndex = (lines: string[], sectionHeader: string): number => {
 const findInsertPosition = (
   lines: string[],
   sectionIndex: number,
-  considerSubsections: boolean
+  considerSubsections: boolean,
 ): number => {
   const sectionLevel = getSectionLevel(lines[sectionIndex]);
   let insertIndex = lines.length;
